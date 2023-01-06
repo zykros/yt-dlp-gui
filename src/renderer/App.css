@@ -1,0 +1,296 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+body {
+  color: white;
+  background: linear-gradient(
+    200.96deg,
+    #6e6fce -29.09%,
+    #0a0a0a 51.77%,
+    #232526 129.35%
+  );
+  height: 100vh;
+  font-family: sans-serif;
+  overflow-y: hidden;
+}
+
+.appContainer {  display: grid;
+  grid-template-columns: 5.7fr;
+  grid-template-rows: 1fr 5fr;
+  gap: 25px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "yt-form"
+    "yt-items";
+}
+
+.yt-form {
+  grid-area: yt-form;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+}
+
+.yt-items {
+  grid-area: yt-items;
+  display: flex;
+  overflow: auto;
+  justify-content: center;
+  height: 600px;
+}
+
+.yt-items::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #293d59ab;
+}
+
+.yt-items::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: transparent;
+}
+
+.yt-items::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+
+.formContainer {
+  width: 100%;
+  align-items: center;
+  margin: 5%;
+}
+
+.ytUrlText {
+  color: white;
+  background-color: transparent;
+  width: 500px;
+  border-color: white;
+  text-align: center;
+  height: 50px;
+  font-size: 2vw;
+	border: 0.35rem solid;
+	padding: 2vw;
+}
+
+.ytUrlText:focus {
+  outline: none !important;
+}
+
+.ytUrlLoading {
+  border-color: yellow;
+}
+
+#downloadButton {
+  color: white;
+  border-color: green;
+}
+
+#downloadButton:hover {
+  color: yellow;
+  border-color: yellow;
+}
+
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: auto;
+  border-radius: 0%;
+}
+
+.container {
+  display: grid;
+  width: 800px;
+  grid-template-columns: 5.7fr;
+  grid-template-rows: 1fr 1fr;
+  border-radius: 10px;
+  border:#0a0a0a;
+  margin-bottom: 10px;
+  height: 150px;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+}
+
+.video-title {
+  grid-area: 1 / 1 / 2 / 2;
+  font-size: 18px;
+  margin: 5px;
+  position: relative;
+}
+
+.video-close {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.video-close:hover {
+  color: 'red';
+}
+
+.video-details {
+  display: grid;
+  grid-template-columns: 5fr .5fr .5fr;
+  grid-template-rows: 1fr .5fr;
+  gap: 10px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "duration format format"
+    "progress progress progress";
+  grid-area: 2 / 1 / 2 / 3;
+}
+
+.duration {
+  grid-area: duration;
+}
+
+.format {
+  grid-area: format;
+  align-self: flex-end;
+  position: relative;
+}
+
+.download {
+  grid-area: download;
+  align-self: flex-end;
+}
+
+.progress {
+  grid-area: progress;
+  align-self: flex-end;
+
+}
+
+.thumbnail {
+  grid-area: 1 / 1 / 3 / 2;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  filter:brightness(35%);
+  z-index: -1;
+}
+
+.progressStatus {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 450px;
+  border-left: none;
+  border-bottom: none;
+  background-color: rgba(10, 10, 10, 0.754);
+  border-top-right-radius: 10px;
+}
+
+.progressStatus > div {
+  padding: 5px;
+  justify-content: space-evenly;
+}
+
+.errorAlert {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+}
+
+.formatGroup {
+  position: absolute;
+  right: 0;
+  top: -5px;
+  background-color: rgba(30, 27, 27, 0.631);
+}
+
+.buttonGroupItems {
+  color: navajowhite;
+  background-color: rgba(52, 47, 47, 0.533)
+}
+
+.formatSelected {
+  color: white;
+  border-color: rgb(27, 84, 108);
+}
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:400");
+
+
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 90deg;
+  inherits: true;
+}
+
+@property --gradX {
+  syntax: '<percentage>';
+  initial-value: 50%;
+  inherits: true;
+}
+
+@property --gradY {
+  syntax: '<percentage>';
+  initial-value: 0%;
+  inherits: true;
+}
+
+:root {
+	--d: 2500ms;
+	--angle: 90deg;
+	--gradX: 100%;
+	--gradY: 50%;
+	--c1: rgba(168, 239, 255, 1);
+	--c2: rgba(168, 239, 255, 0.1);
+}
+
+.wrapper {
+	min-width: min(40rem, 100%);
+}
+
+.box {
+	border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+	animation: borderRotate var(--d) linear infinite forwards;
+}
+
+.box:nth-child(2) {
+	border-image: radial-gradient(ellipse at var(--gradX) var(--gradY), var(--c1), var(--c1) 10%, var(--c2) 40%) 30;
+	animation: borderRadial var(--d) linear infinite forwards;
+}
+
+@keyframes borderRotate {
+	100% {
+		--angle: 420deg;
+	}
+}
+
+@keyframes borderRadial {
+	20% {
+		--gradX: 100%;
+		--gradY: 50%;
+	}
+	40% {
+		--gradX: 100%;
+		--gradY: 100%;
+	}
+	60% {
+		--gradX: 50%;
+		--gradY: 100%;
+	}
+	80% {
+		--gradX: 0%;
+		--gradY: 50%;
+	}
+	100% {
+		--gradX: 50%;
+		--gradY: 0%;
+	}
+}
